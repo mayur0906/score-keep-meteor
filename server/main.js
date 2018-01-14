@@ -4,7 +4,10 @@ import {Tracker} from 'meteor/tracker'
 
 
 Meteor.startup(function(){
-  console.log(Players.find().fetch());
-  
+
+  let numbers = [9,99,4,56];
+  let newNumbers = numbers.map((number) => number+1);
+
+  console.log(newNumbers);
 
 });
