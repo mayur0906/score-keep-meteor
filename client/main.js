@@ -2,21 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Meteor} from 'meteor/meteor'
 import {Tracker} from 'meteor/tracker'
-
 import {Players} from './../imports/api/players.js';
 
 
-const renderPlayers = function(playersList) {
-  let numbers = [{val:9},{val:2},{val:3},{val:101}];
-
-  return playersList.map(function(player){
-    return <p key={player._id}>{player.name} has {player.score} points.</p>;
-  });
-
-
+const renderPlayers = (playersList) => {
+  return playersList.map((player) =>{
+  return <p key={player._id}>{player.name} has {player.score} points.</p>
+});
 }
 
-const handleSubmit = function(e) {
+const handleSubmit = (e) => {
   let playerName = e.target.playerName.value;
   if (playerName) {
     e.target.playerName.value = "";
@@ -28,8 +23,8 @@ const handleSubmit = function(e) {
   e.preventDefault();
 };
 
-Meteor.startup(function(playersList) {
-  Tracker.autorun(function() {
+Meteor.startup((playersList) => {
+  Tracker.autorun(() => {
     let players=Players.find().fetch();
     let title = 'Hello Internet!'
     let name = 'Mayur';
@@ -47,8 +42,5 @@ Meteor.startup(function(playersList) {
     );
     ReactDOM.render(jsx,document.getElementById('app'));
   });
-
-
-  // console.log(Players.find().fetch());
 
 });
