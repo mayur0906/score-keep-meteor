@@ -16,5 +16,3 @@ TitleBar.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired
 }
-
-TitleBar.default
