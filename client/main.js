@@ -2,20 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Meteor} from 'meteor/meteor'
 import {Tracker} from 'meteor/tracker'
+
 import {Players} from './../imports/api/players.js';
 import TitleBar from './../imports/ui/TitleBar.js';
 import AddPlayer from './../imports/ui/AddPlayer.js'
-import Player from './../imports/ui/Player.js'
-
-
-const renderPlayers = (playersList) => {
-  return playersList.map((player) =>{
-    return <Player key={player._id} player={player}/>;
-
-});
-}
-
-
+import PlayerList from './../imports/ui/PlayerList.js'
 
 Meteor.startup((playersList) => {
   Tracker.autorun(() => {
@@ -25,8 +16,7 @@ Meteor.startup((playersList) => {
     let jsx = (
       <div>
         <TitleBar title={title} subtitle="Created by Mayur Muralidhar."/>
-        <p>Hello {name}!</p>
-        {renderPlayers(players)}
+        <PlayerList players = {players}/>
         <AddPlayer/>
       </div>
     );
