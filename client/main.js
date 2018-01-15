@@ -44,11 +44,11 @@ const handleSubmit = (e) => {
 Meteor.startup((playersList) => {
   Tracker.autorun(() => {
     let players=Players.find().fetch();
-    let title = 'Hello Internet!'
+    let title = 'Score Keep App'
     let name = 'Mayur';
     let jsx = (
       <div>
-        <TitleBar/>
+        <TitleBar title={title} subtitle="Created by Mayur Muralidhar."/>
         <p>Hello {name}!</p>
         {renderPlayers(players)}
         <AddPlayer/>
