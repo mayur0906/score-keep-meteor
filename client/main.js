@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import {Meteor} from 'meteor/meteor'
 import {Tracker} from 'meteor/tracker'
 import {Players} from './../imports/api/players.js';
+import TitleBar from './../imports/ui/TitleBar.js';
+import AddPlayer from './../imports/ui/AddPlayer.js'
 
 
 const renderPlayers = (playersList) => {
@@ -46,16 +48,17 @@ Meteor.startup((playersList) => {
     let name = 'Mayur';
     let jsx = (
       <div>
-        <h1>{title}</h1>
+        <TitleBar/>
         <p>Hello {name}!</p>
-        <p>This is my second paragraph.</p>
         {renderPlayers(players)}
+        <AddPlayer/>
         <form onSubmit={handleSubmit}>
           <input type="text" name="playerName" placeholder="Player Name"/>
           <button>Add Player</button>
         </form>
       </div>
     );
+
     ReactDOM.render(jsx,document.getElementById('app'));
   });
 
