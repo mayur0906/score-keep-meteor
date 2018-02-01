@@ -5,6 +5,7 @@ import {Players} from './../api/players.js';
 
 export default class Player extends React.Component {
   render() {
+    let itemClassName = `item`;
     return (
       <div key={this.props.player._id} className="item">
         <div className="player">
